@@ -7,6 +7,11 @@
 <title>Li·La by La Maison d'AVA</title>
 <link rel="icon" type="image/png" href="./lila-symbol-transparent.png">
 <link rel="apple-touch-icon" href="./lila-symbol-transparent.png">
+<link rel="manifest" href="./manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Li·La">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -416,10 +421,11 @@ label { display: block; font-weight: 600; margin-bottom: 6px; color: var(--ll-na
   text-align: center;
   font-size: 16px;
   padding: 14px;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.02em;
   font-weight: 600;
   text-transform: uppercase;
 }
+.login-form input::placeholder { letter-spacing: 0.04em; font-weight: 500; }
 .login-form .btn {
   width: 100%;
   margin-top: 14px;
@@ -1336,7 +1342,7 @@ main {
   transform: translateY(-2px);
 }
 .market-card-bien {
-  border-left-color: var(--ll-navy);
+  border-left-color: #5F7E54;
 }
 .market-card-demande {
   border-left-color: var(--ll-orange);
@@ -1360,7 +1366,7 @@ main {
   border-radius: 4px;
 }
 .market-tag-bien {
-  background: var(--ll-navy);
+  background: #5F7E54;
   color: white;
 }
 .market-tag-bien .ic { color: white; }
@@ -2072,6 +2078,13 @@ body.admin-mode .licencie-row .admin-actions { display: flex; }
   background: var(--ll-orange);
 }
 .lien-icone-om .ic { color: var(--ll-navy); }
+/* Rotation charte : orange / lilas / sauge (demande Laurence) */
+.lien-icone-orange { background: var(--ll-orange); }
+.lien-icone-orange .ic { color: #fff; }
+.lien-icone-lilas { background: var(--ll-lilas); }
+.lien-icone-lilas .ic { color: #fff; }
+.lien-icone-sauge { background: var(--ll-sage); }
+.lien-icone-sauge .ic { color: var(--ll-navy); }
 .lien-card-wrap {
   position: relative;
 }
@@ -3049,7 +3062,7 @@ dialog::backdrop {
     </div>
     <!-- login-brand retiré : le logo contient déjà le wordmark + la signature -->
     <div class="login-form">
-      <input type="text" id="loginCode" placeholder="Votre code d'accès" autocomplete="off" autocapitalize="characters">
+      <input type="text" id="loginCode" placeholder="Code d'accès" autocomplete="off" autocapitalize="characters">
       <button class="btn btn-primary" onclick="login()">Entrer</button>
       <div id="loginError" style="display:none;" class="login-error"></div>
     </div>
@@ -3096,6 +3109,7 @@ dialog::backdrop {
     <button class="tab" data-view="evenements" onclick="setView('evenements')">Événements</button>
     <button class="tab" data-view="masterclass" onclick="setView('masterclass')">Masterclass</button>
     <button class="tab" data-view="liens" onclick="setView('liens')">Liens utiles</button>
+    <button class="tab" data-view="biens" onclick="setView('biens')">Bibliothèque</button>
     <button class="tab tab-profil" data-view="profil" onclick="setView('profil')" id="tabProfil" style="display:none;"><span id="tabProfilIcon"></span> Mon profil</button>
     <button class="tab admin-only-tab" data-view="parametres" onclick="setView('parametres')" style="display:none;"><span id="tabParamIcon"></span> Paramètres</button>
   </nav>
@@ -3193,6 +3207,10 @@ dialog::backdrop {
         </div>
         <button class="btn btn-primary admin-only" onclick="openEventEdit()" style="display:none;">+ Nouvel événement</button>
       </div>
+      <div class="section-intro">
+        <strong>Les rendez-vous du réseau Li·La</strong>
+        <small>Chaque carte est aux <b>couleurs de son département</b>. <b>Pause Café</b> : un moment convivial d'échange entre membres (≈ 1h–1h30). <b>Apér'Immo</b> : un afterwork pour réseauter autour d'un verre. Cliquez sur « S'inscrire » pour vous enregistrer via le formulaire.</small>
+      </div>
       <div class="toolbar">
         <div class="filter-group" id="filterEventStatus">
           <button class="filter-chip active" data-status="upcoming" onclick="setEventFilter('upcoming')">À venir</button>
@@ -3216,6 +3234,10 @@ dialog::backdrop {
           <div class="section-subtitle">Formations et apprentissages</div>
         </div>
         <button class="btn btn-primary admin-only admin-only-superadmin" onclick="openMcEdit()" style="display:none;">+ Nouvelle masterclass</button>
+      </div>
+      <div class="section-intro">
+        <strong>Les Masterclass Li·La</strong>
+        <small><b>45 minutes</b> sur un sujet précis animées par un <b>expert</b>, suivies d'un temps de <b>questions ouvertes</b>. Inscrivez-vous pour réserver votre place — et vous pouvez aussi <b>inviter un contact</b>.</small>
       </div>
       <div class="toolbar">
         <div class="filter-group" id="filterMcStatus">
@@ -3246,7 +3268,55 @@ dialog::backdrop {
         </div>
         <button class="btn btn-primary admin-only admin-only-lien" onclick="openLienEdit()" style="display:none;">+ Nouveau lien</button>
       </div>
+      <div class="section-intro">
+        <strong>Les ressources du réseau Li·La</strong>
+        <small>Tous les <b>outils, formulaires et plateformes</b> utiles au quotidien : prise de mandat, formations, hub immobilier, carte digitale… Cliquez sur une carte pour ouvrir le lien.</small>
+      </div>
       <div id="liensContainer"></div>
+    </section>
+
+    <!-- BIBLIOTHÈQUE DES BIENS -->
+    <section id="view-biens" class="view">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Bibliothèque des biens</h2>
+          <div class="section-subtitle"><span id="countBiens">0</span> biens &amp; recherches du réseau</div>
+        </div>
+      </div>
+      <div class="section-intro">
+        <strong>La bibliothèque du collectif Li·La</strong>
+        <small>L'<b>historique</b> des <b>biens à vendre</b> et des <b>recherches clients</b> partagés par les membres. Filtrez par type ou par mot-clé, et <b>cliquez sur une carte</b> pour le détail.</small>
+      </div>
+      <div class="toolbar">
+        <div class="search-box">
+          <input type="text" id="searchBiens" placeholder="Rechercher un bien, une ville…" oninput="renderBibliotheque()">
+        </div>
+        <div class="filter-group" id="filterBiensType">
+          <button class="filter-chip active" data-btype="all" onclick="setBiensType('all')">Tous</button>
+          <button class="filter-chip" data-btype="bien" onclick="setBiensType('bien')">À vendre</button>
+          <button class="filter-chip" data-btype="demande" onclick="setBiensType('demande')">Recherches</button>
+        </div>
+      </div>
+      <div class="market-grid" id="biensGrid"></div>
+
+      <div class="recent-section dash-deposit" style="margin-top:28px;">
+        <h3>Partager une opportunité</h3>
+        <div class="section-subtitle" style="margin-bottom:14px;">Déposez un bien, une recherche client, ou transmettez une affaire au réseau</div>
+        <div class="dash-deposit-actions">
+          <button class="dash-deposit-btn" onclick="openDepotBienModal()">
+            <span class="dash-deposit-ico" style="background:#6E8A63;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg></span>
+            Déposer un bien à la vente
+          </button>
+          <button class="dash-deposit-btn" onclick="openDepotDemandeModal()">
+            <span class="dash-deposit-ico" style="background:var(--ll-orange);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span>
+            Déposer une recherche client
+          </button>
+          <button class="dash-deposit-btn" onclick="alert('Envoyer une affaire au réseau — fonctionnalité en cours de développement.')">
+            <span class="dash-deposit-ico" style="background:var(--ll-navy);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4z"/></svg></span>
+            Envoyer une affaire à La Maison d'AVA
+          </button>
+        </div>
+      </div>
     </section>
 
     <!-- PARAMÈTRES (admin uniquement) -->
@@ -4377,7 +4447,7 @@ function renderDashboard() {
       <h3>${escapeHtml(nextEvt.titre)}</h3>
       <div class="meta">${d.day} ${d.month} ${d.year} · ${escapeHtml(nextEvt.heure)} · ${escapeHtml(nextEvt.lieu)}</div>
       <div class="actions">
-        <button class="btn btn-marine btn-sm" onclick="openEventModal('${nextEvt.id}')">Voir le détail</button>
+        <button class="btn btn-sm" style="background:var(--ll-orange); color:#fff;" onclick="openEventModal('${nextEvt.id}')">Voir le détail</button>
       </div>`;
     evtEl.classList.remove('empty');
   } else {
@@ -4397,7 +4467,7 @@ function renderDashboard() {
       <h3>${escapeHtml(nextMc.titre)}</h3>
       <div class="meta">${d.day} ${d.month} ${d.year} · ${escapeHtml(nextMc.heure)}${nextMc.thematique ? ' · ' + escapeHtml(nextMc.thematique) : ''}</div>
       <div class="actions">
-        <button class="btn btn-marine btn-sm" onclick="openMcModal('${nextMc.id}')">Voir le détail</button>
+        <button class="btn btn-primary btn-sm" onclick="openMcModal('${nextMc.id}')">Voir le détail</button>
         <span class="places-counter ${places<=3?'warn':''} ${places<=0?'full':''}">${places > 0 ? places + ' places restantes' : 'COMPLET'}</span>
       </div>`;
     mcEl.classList.remove('empty');
@@ -4439,7 +4509,7 @@ function renderDashboard() {
             <span>${b.surface ? b.surface + ' m²' : ''}</span>
             ${b.pieces ? `<span class="market-sep">·</span><span>${b.pieces} p.</span>` : ''}
           </div>
-          <div class="market-loc">${icon('mapPin', 12)} ${escapeHtml(b.ville)} <span class="badge-dept-mini" style="background:${deptInfo.couleur_clair || '#ccc'};">${b.departement}</span></div>
+          <div class="market-loc">${icon('mapPin', 12)} ${escapeHtml(b.ville)} <span class="badge-dept-mini" style="background:${deptColor(b.departement)};">${b.departement}</span></div>
           <div class="market-author">par ${escapeHtml(auteurNom)}</div>
         </div>`;
     }).join('');
@@ -4460,7 +4530,7 @@ function renderDashboard() {
             ${d.surface_min ? `<span class="market-sep">·</span><span>${d.surface_min}+ m²</span>` : ''}
             ${d.pieces_min ? `<span class="market-sep">·</span><span>${d.pieces_min}+ p.</span>` : ''}
           </div>
-          <div class="market-loc">${icon('mapPin', 12)} ${escapeHtml(d.ville)} <span class="badge-dept-mini" style="background:${deptInfo.couleur_clair || '#ccc'};">${d.departement}</span></div>
+          <div class="market-loc">${icon('mapPin', 12)} ${escapeHtml(d.ville)} <span class="badge-dept-mini" style="background:${deptColor(d.departement)};">${d.departement}</span></div>
           <div class="market-author">par ${escapeHtml(auteurNom)}</div>
         </div>`;
     }).join('');
@@ -4744,7 +4814,8 @@ function renderEventCard(e, isMc) {
     badge = e.thematique ? `<span class="badge badge-marine">${escapeHtml(e.thematique)}</span>` : '';
   } else {
     typeIcon = getEventIcon(e.type);
-    if (e.type) badge = `<span class="badge badge-orange">${icon(typeIcon, 12)} ${escapeHtml(e.type)}</span>`;
+    const typeColor = e.departement ? deptColor(e.departement) : 'var(--ll-orange)';
+    if (e.type) badge = `<span class="badge" style="background:${typeColor}; color:#fff;">${icon(typeIcon, 12)} ${escapeHtml(e.type)}</span>`;
   }
 
   // Meta info
@@ -4760,8 +4831,9 @@ function renderEventCard(e, isMc) {
     else if (places <= 0) actionBtn = `<button class="btn btn-secondary btn-sm" disabled>Complet</button>`;
     else {
       const tallyUrl = buildTallyLink(e, isMc);
+      const insColor = isMc ? 'var(--ll-navy)' : (e.departement ? deptColor(e.departement) : 'var(--ll-navy)');
       if (tallyUrl) {
-        actionBtn = `<a href="${tallyUrl}" target="_blank" rel="noopener" class="btn btn-marine btn-sm" onclick="event.stopPropagation()">S'inscrire ↗</a>`;
+        actionBtn = `<a href="${tallyUrl}" target="_blank" rel="noopener" class="btn btn-sm" style="background:${insColor}; color:#fff;" onclick="event.stopPropagation()">S'inscrire ↗</a>`;
       } else {
         actionBtn = `<button class="btn btn-secondary btn-sm" disabled title="URL Tally non configurée pour ce département">S'inscrire</button>`;
       }
@@ -4798,7 +4870,7 @@ function renderEventCard(e, isMc) {
       <div class="event-actions">
         ${actionBtn}
         ${!past ? `<span class="places-counter ${places<=3?'warn':''} ${places<=0?'full':''}">${places > 0 ? places + '/' + e.max + ' places' : 'Complet'}</span>` : `<span class="places-counter">${e.inscrits.length} inscrits</span>`}
-        ${!past ? `<button class="btn btn-secondary" onclick="event.stopPropagation(); openShareModal('${e.id}', ${isMc?'true':'false'})" title="Inviter quelqu'un à cet événement">${icon('send', 16)} Inviter un contact</button>` : ''}
+        ${!past ? `<button class="btn" style="background:#fff; color:var(--ll-orange); border:1.5px solid var(--ll-orange);" onclick="event.stopPropagation(); openShareModal('${e.id}', ${isMc?'true':'false'})" title="Inviter quelqu'un à cet événement">${icon('send', 16)} Inviter un contact</button>` : ''}
         ${canEdit ? `<div class="admin-actions-evt" onclick="event.stopPropagation()">
           <button class="icon-btn" onclick="${isMc?'openMcEdit':'openEventEdit'}('${e.id}')" title="Modifier">${icon('edit', 14)}</button>
           <button class="icon-btn danger" onclick="${isMc?'deleteMc':'deleteEvent'}('${e.id}')" title="Supprimer">${icon('x', 14)}</button>
@@ -4849,7 +4921,7 @@ function openEventModalGeneric(e, isMc) {
   if (!past && !inscrit && places > 0) {
     const tallyUrl = buildTallyLink(e, isMc);
     if (tallyUrl) {
-      actionBtn = `<a href="${tallyUrl}" target="_blank" rel="noopener" class="btn btn-marine">S'inscrire via le formulaire ↗</a>`;
+      actionBtn = `<a href="${tallyUrl}" target="_blank" rel="noopener" class="btn" style="background:${isMc ? 'var(--ll-navy)' : (e.departement ? deptColor(e.departement) : 'var(--ll-navy)')}; color:#fff;">S'inscrire via le formulaire ↗</a>`;
     } else {
       actionBtn = `<button class="btn btn-secondary" disabled title="URL Tally non configurée">Inscription indisponible</button>`;
     }
@@ -4862,7 +4934,7 @@ function openEventModalGeneric(e, isMc) {
   if (isMc) {
     typeBadge = e.thematique ? `<span class="badge badge-marine"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-1px;display:inline-block;"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg> ${escapeHtml(e.thematique)}</span>` : '';
   } else {
-    if (e.type) typeBadge = `<span class="badge badge-orange">${getEventIcon(e.type)} ${escapeHtml(e.type)}</span>`;
+    if (e.type) typeBadge = `<span class="badge" style="background:${e.departement ? deptColor(e.departement) : 'var(--ll-orange)'}; color:#fff;">${icon(getEventIcon(e.type), 12)} ${escapeHtml(e.type)}</span>`;
   }
 
   // Meta supplémentaire
@@ -4889,7 +4961,7 @@ function openEventModalGeneric(e, isMc) {
       <div style="margin-top:18px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
         <strong>${e.inscrits.length} inscrit${e.inscrits.length>1?'s':''} ${e.max ? `/ ${e.max}` : ''}</strong>
         <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
-          ${!past ? `<button class="btn btn-secondary" onclick="openShareModal('${e.id}', ${isMc?'true':'false'})">${icon('send', 16)} Inviter un contact</button>` : ''}
+          ${!past ? `<button class="btn" style="background:#fff; color:var(--ll-orange); border:1.5px solid var(--ll-orange);" onclick="openShareModal('${e.id}', ${isMc?'true':'false'})">${icon('send', 16)} Inviter un contact</button>` : ''}
           ${actionBtn}
         </div>
       </div>
@@ -5134,9 +5206,10 @@ function renderProfil() {
       <div class="profil-section profil-section-hub">
         <h4>${icon('briefcase', 14)} Mon activité Hub</h4>
         <p style="font-size:13px; color:var(--ll-texte-sec); margin-bottom:12px;">Partagez vos opportunités avec les autres membres du Collectif AVA.</p>
-        <div style="display:flex; gap:10px; flex-wrap:wrap;">
-          <button class="btn btn-marine" onclick="openDepotBienModal()">${icon('home', 16)} Déposer un bien à la vente</button>
-          <button class="btn btn-primary" onclick="openDepotDemandeModal()">${icon('target', 16)} Déposer une recherche client</button>
+        <div class="dash-deposit-actions">
+          <button class="dash-deposit-btn" onclick="openDepotBienModal()"><span class="dash-deposit-ico" style="background:#6E8A63;">${icon('home', 18)}</span>Déposer un bien à la vente</button>
+          <button class="dash-deposit-btn" onclick="openDepotDemandeModal()"><span class="dash-deposit-ico" style="background:var(--ll-orange);">${icon('target', 18)}</span>Déposer une recherche client</button>
+          <button class="dash-deposit-btn" onclick="alert('Envoyer une affaire au réseau — fonctionnalité en cours de développement.')"><span class="dash-deposit-ico" style="background:var(--ll-navy);">${icon('send', 18)}</span>Envoyer une affaire à La Maison d'AVA</button>
         </div>
         ${countMesBiens(l.id) > 0 || countMesDemandes(l.id) > 0 ? `
         <div style="margin-top:14px; font-size:12px; color:var(--ll-texte-mute);">
@@ -5504,6 +5577,10 @@ function renderLiens() {
     'fileText2': 'fileText',
     'phone': 'phone',
     'mail': 'mail',
+    // Vrais emojis → icônes SVG charte (si les données du Sheet contiennent des emojis)
+    '🎯': 'target', '📅': 'calendar', '🔗': 'link', '🎓': 'graduation',
+    '🤖': 'briefcase', '🏠': 'home', '📝': 'fileText', '📄': 'fileText',
+    '📞': 'phone', '✉️': 'mail', '💼': 'briefcase', '🌐': 'globe',
   };
 
   container.innerHTML = catsOrdered.map(cat => `
@@ -5512,8 +5589,8 @@ function renderLiens() {
       <div class="liens-grid">
         ${byCategorie[cat].map((l, idx) => {
           const iconName = emojiToIconName[l.icone] || 'link';
-          // Alternance : pair = cadre marine icône orange, impair = cadre orange icône marine
-          const variant = idx % 2 === 0 ? 'bm' : 'om';
+          // Rotation charte : orange → lilas → sauge
+          const variant = ['orange', 'lilas', 'sauge'][idx % 3];
           return `
           <div class="lien-card-wrap">
             <a class="lien-card" href="${escapeHtml(l.url)}" target="_blank" rel="noopener">
@@ -5747,6 +5824,69 @@ function openLienEdit(id) {
    RENDER ALL
 ===================================================================== */
 
+/* =====================================================================
+   BIBLIOTHÈQUE DES BIENS — biens à vendre + recherches du réseau
+===================================================================== */
+let currentBiensType = 'all';
+function setBiensType(t) {
+  currentBiensType = t;
+  document.querySelectorAll('#filterBiensType .filter-chip').forEach(c => c.classList.toggle('active', c.dataset.btype === t));
+  renderBibliotheque();
+}
+function bienCardHTML(b) {
+  const auteur = LICENCIES.find(l => l.id === b.membre_id);
+  const auteurNom = auteur ? `${capitalize(auteur.prenom)} ${capitalize(auteur.nom)}` : '—';
+  return `
+    <div class="market-card market-card-bien" onclick="openBienModal('${b.id}')">
+      <div class="market-card-header">
+        <span class="market-tag market-tag-bien">${icon('home', 12)} À vendre</span>
+        ${b.exclusivite ? '<span class="market-tag market-tag-exclu">Exclusivité</span>' : ''}
+      </div>
+      <h4 class="market-title">${escapeHtml(b.titre)}</h4>
+      <div class="market-meta">
+        <span class="market-price">${formatPrix(b.prix)}</span>
+        ${b.surface ? `<span class="market-sep">·</span><span>${b.surface} m²</span>` : ''}
+        ${b.pieces ? `<span class="market-sep">·</span><span>${b.pieces} p.</span>` : ''}
+      </div>
+      <div class="market-loc">${icon('mapPin', 12)} ${escapeHtml(b.ville)} <span class="badge-dept-mini" style="background:${deptColor(b.departement)};">${b.departement}</span></div>
+      <div class="market-author">par ${escapeHtml(auteurNom)}</div>
+    </div>`;
+}
+function demandeCardHTML(d) {
+  const auteur = LICENCIES.find(l => l.id === d.membre_id);
+  const auteurNom = auteur ? `${capitalize(auteur.prenom)} ${capitalize(auteur.nom)}` : '—';
+  return `
+    <div class="market-card market-card-demande" onclick="openDemandeModal('${d.id}')">
+      <div class="market-card-header">
+        <span class="market-tag market-tag-demande">${icon('target', 12)} Recherche</span>
+        ${d.urgence === 'Sous 3 mois' ? '<span class="market-tag market-tag-urgent">Urgent</span>' : ''}
+      </div>
+      <h4 class="market-title">${escapeHtml(d.titre)}</h4>
+      <div class="market-meta">
+        <span class="market-price">${formatPrix(d.budget_max)} max</span>
+        ${d.surface_min ? `<span class="market-sep">·</span><span>${d.surface_min}+ m²</span>` : ''}
+        ${d.pieces_min ? `<span class="market-sep">·</span><span>${d.pieces_min}+ p.</span>` : ''}
+      </div>
+      <div class="market-loc">${icon('mapPin', 12)} ${escapeHtml(d.ville)} <span class="badge-dept-mini" style="background:${deptColor(d.departement)};">${d.departement}</span></div>
+      <div class="market-author">par ${escapeHtml(auteurNom)}</div>
+    </div>`;
+}
+function renderBibliotheque() {
+  const grid = document.getElementById('biensGrid');
+  if (!grid) return;
+  const q = (document.getElementById('searchBiens')?.value || '').trim().toLowerCase();
+  let items = [];
+  if (currentBiensType !== 'demande') BIENS.filter(b => b.actif).forEach(b => items.push({ kind: 'bien', data: b }));
+  if (currentBiensType !== 'bien') DEMANDES.filter(d => d.actif).forEach(d => items.push({ kind: 'demande', data: d }));
+  if (q) items = items.filter(it => [it.data.titre, it.data.ville, it.data.type_bien].some(f => (f || '').toLowerCase().includes(q)));
+  items.sort((a, b) => (b.data.date_ajout || '').localeCompare(a.data.date_ajout || ''));
+  const countEl = document.getElementById('countBiens');
+  if (countEl) countEl.textContent = items.length;
+  grid.innerHTML = items.length === 0
+    ? `<div class="market-empty" style="grid-column:1/-1;">Aucun bien ni recherche pour ces critères.</div>`
+    : items.map(it => it.kind === 'bien' ? bienCardHTML(it.data) : demandeCardHTML(it.data)).join('');
+}
+
 function renderAll() {
   renderDashboard();
   renderAnnuaire();
@@ -5754,6 +5894,7 @@ function renderAll() {
   renderMasterclass();
   renderLiens();
   renderProfil();
+  renderBibliotheque();
 }
 
 function dismissCTA() {
