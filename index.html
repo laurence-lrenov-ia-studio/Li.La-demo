@@ -3,8 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#071E3A">
+<meta name="theme-color" content="#0C2241">
 <title>Li·La by La Maison d'AVA</title>
+<link rel="icon" type="image/png" href="./lila-symbol-transparent.png">
+<link rel="apple-touch-icon" href="./lila-symbol-transparent.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -13,17 +15,17 @@
    CHARTE LI·LA — Variables
 ==================================================================== */
 :root {
-  --ll-navy: #071E3A;
+  --ll-navy: #0C2241;
   --ll-navy-deep: #040F1E;
   --ll-navy-soft: #1A3558;
-  --ll-orange: #E86A2C;
+  --ll-orange: #F08247;
   --ll-orange-light: #F0924E;
   --ll-orange-pale: #F9CEAD;
-  --ll-fond: #F8F5F0;
-  --ll-cream: #F8F5F0;
+  --ll-fond: #FAF8F4;
+  --ll-cream: #FAF8F4;
   --ll-blanc: #FFFFFF;
-  --ll-texte: #071E3A;
-  --ll-texte-sec: #3D5070;
+  --ll-texte: #0C2241;
+  --ll-texte-sec: #626A73;
   --ll-texte-mute: #8A96A8;
   --ll-bord: #E2DDD8;
   --ll-bord-soft: #EDE9E4;
@@ -31,18 +33,18 @@
   --ll-warn: #D97706;
   --ll-danger: #DC2626;
   /* Couleurs par département (palette désaturée, harmonie marine+orange) */
-  --dept-33: #E86A2C;       /* Bordeaux/Gironde — rouge bordeaux */
+  --dept-33: #F08247;       /* Bordeaux/Gironde — rouge bordeaux */
   --dept-33-clair: #F0924E;
-  --dept-75: #A989B8;       /* Paris — bleu acier */
+  --dept-75: #A996B8;       /* Paris — bleu acier */
   --dept-75-clair: #C4ADCF;
-  --dept-92: #91A985;       /* Hauts-de-Seine — vert mousse */
+  --dept-92: #9AAD8F;       /* Hauts-de-Seine — vert mousse */
   --dept-92-clair: #AFCBA5;
-  --dept-94: #071E3A;       /* Val-de-Marne — prune */
+  --dept-94: #0C2241;       /* Val-de-Marne — prune */
   --dept-94-clair: #1A3558;
   /* Li·La — palette plateforme (valeurs charte définitives) */
-  --ll-mauve: #A989B8;
+  --ll-mauve: #A996B8;
   --ll-mauve-bg: #EDE5F2;
-  --ll-sage: #91A985;
+  --ll-sage: #9AAD8F;
   --ll-sage-bg: #EBF2EA;
   --ll-lilas: #6D6FA7;
   --ll-lilas-light: #B8A7C7;
@@ -210,11 +212,11 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .btn-marine {
-  background: var(--ll-navy);
+  background: #5F7E54;
   color: white;
 }
 .btn-marine:hover {
-  background: var(--ll-navy-deep);
+  background: #4E6A45;
   box-shadow: var(--shadow-md);
   color: white;
 }
@@ -328,16 +330,12 @@ label { display: block; font-weight: 600; margin-bottom: 6px; color: var(--ll-na
   z-index: 1;
 }
 .login-logo {
-  width: 110px;
-  height: 110px;
-  margin: 0 auto 24px;
-  border: 3px solid var(--ll-orange);
-  border-radius: 50%;
+  margin: 0 auto 14px;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
 }
+.login-logo .logo-img { width: 230px; max-width: 74%; }
 .login-logo-text {
   font-family: 'Nunito', sans-serif;
   font-size: 36px;
@@ -353,15 +351,14 @@ label { display: block; font-weight: 600; margin-bottom: 6px; color: var(--ll-na
 .header-logo .ll-monogram { width: 90%; height: 90%; }
 
 .logo-img {
-  width: 100%;
-  height: 100%;
+  max-width: 100%;
+  height: auto;
   object-fit: contain;
-  border-radius: 50%;
-  background: white;
-  padding: 4px;
+  display: block;
 }
 .header-logo .logo-img {
-  padding: 2px;
+  height: 40px;
+  width: auto;
 }
 
 .logo-placeholder {
@@ -481,13 +478,8 @@ label { display: block; font-weight: 600; margin-bottom: 6px; color: var(--ll-na
   min-width: 0;
 }
 .header-logo {
-  width: 44px;
-  height: 44px;
-  border: 2px solid var(--ll-orange);
-  border-radius: 50%;
   display: flex;
   align-items: center;
-  justify-content: center;
   flex-shrink: 0;
 }
 .header-logo-text {
@@ -1024,8 +1016,8 @@ main {
    CTA Dashboard licencié (bleu marine)
 ==================================================================== */
 .cta-banner {
-  background: linear-gradient(135deg, var(--ll-navy), var(--ll-navy-deep));
-  color: white;
+  background: linear-gradient(120deg, var(--ll-sage) 0%, #A9BC9E 100%);
+  color: var(--ll-navy);
   border-radius: var(--radius-lg);
   padding: 18px 24px;
   margin-bottom: 20px;
@@ -1045,7 +1037,7 @@ main {
   width: 140px;
   height: 140px;
   background: var(--ll-orange);
-  opacity: 0.2;
+  opacity: 0.35;
   border-radius: 50%;
 }
 .cta-banner-content {
@@ -1091,11 +1083,11 @@ main {
   box-shadow: 0 4px 12px rgba(232, 106, 44, 0.35);
 }
 .btn-cta-secondary {
-  background: rgba(255,255,255,0.12);
-  color: white;
+  background: rgba(255,255,255,0.6);
+  color: var(--ll-navy);
   padding: 10px 16px;
   border-radius: var(--radius-md);
-  border: 1px solid rgba(255,255,255,0.3);
+  border: 1px solid rgba(12,34,65,0.22);
   font-weight: 600;
   font-size: 14px;
   cursor: pointer;
@@ -1106,15 +1098,15 @@ main {
   transition: all 0.15s;
 }
 .btn-cta-secondary:hover {
-  background: rgba(255,255,255,0.22);
-  border-color: rgba(255,255,255,0.5);
+  background: #fff;
+  border-color: rgba(12,34,65,0.4);
   text-decoration: none;
-  color: white;
+  color: var(--ll-navy);
 }
 .cta-dismiss {
-  background: rgba(255,255,255,0.15);
-  border: 1px solid rgba(255,255,255,0.3);
-  color: white;
+  background: rgba(12,34,65,0.06);
+  border: 1px solid rgba(12,34,65,0.18);
+  color: var(--ll-navy);
   width: 36px;
   height: 36px;
   border-radius: 50%;
@@ -1127,9 +1119,47 @@ main {
   transition: all 0.15s;
 }
 .cta-dismiss:hover {
-  background: rgba(255,255,255,0.25);
-  border-color: rgba(255,255,255,0.5);
+  background: rgba(12,34,65,0.12);
+  border-color: rgba(12,34,65,0.3);
 }
+
+/* ====================================================================
+   BANDEAU D'INTRO DE SECTION (sauge, comme le dashboard)
+==================================================================== */
+.section-intro {
+  background: linear-gradient(120deg, var(--ll-sage) 0%, #A9BC9E 100%);
+  color: var(--ll-navy);
+  border-radius: var(--radius-lg);
+  padding: 16px 22px;
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+}
+.section-intro::before {
+  content: '';
+  position: absolute;
+  top: -30px; right: -30px;
+  width: 130px; height: 130px;
+  background: var(--ll-orange);
+  opacity: 0.18;
+  border-radius: 50%;
+}
+.section-intro strong {
+  display: block;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 4px;
+  position: relative;
+}
+.section-intro small {
+  display: block;
+  font-size: 13px;
+  line-height: 1.55;
+  position: relative;
+  max-width: 700px;
+}
+.section-intro small b { font-weight: 700; }
 
 /* ====================================================================
    KPI ADMIN
@@ -1198,13 +1228,16 @@ main {
   position: absolute;
   top: 0;
   right: 0;
-  width: 120px;
-  height: 120px;
+  width: 170px;
+  height: 170px;
   background: var(--ll-orange-pale);
-  opacity: 0.4;
+  opacity: 0.6;
   border-radius: 50%;
-  transform: translate(40%, -40%);
+  transform: translate(42%, -42%);
 }
+/* Masterclass = accent sauge (vs Événement = orange) pour l'identité pro */
+#dashNextMc.hero-card::before { background: var(--ll-sage); opacity: 0.5; }
+#dashNextMc .hero-card-label { color: #6E8A63; }
 .hero-card-label {
   font-size: 11px;
   font-weight: 700;
@@ -1248,17 +1281,50 @@ main {
   gap: 14px;
 }
 
+/* ==== BLOC DÉPÔT (boutons à carré d'icône coloré) ==== */
+.dash-deposit-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+.dash-deposit-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  background: #fff;
+  border: 1px solid var(--ll-bord);
+  border-radius: 12px;
+  padding: 8px 18px 8px 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ll-navy);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.dash-deposit-btn:hover {
+  border-color: var(--ll-navy);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-1px);
+}
+.dash-deposit-ico {
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  flex-shrink: 0;
+}
+
 /* ==== MARKET CARDS (Marché interne) ==== */
 .market-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 14px;
 }
 .market-card {
   background: white;
   border: 1px solid var(--ll-bord);
   border-radius: var(--radius-md);
-  padding: 16px;
+  padding: 14px;
   cursor: pointer;
   transition: all 0.15s;
   position: relative;
@@ -1315,7 +1381,7 @@ main {
 }
 .market-title {
   font-family: 'Nunito', sans-serif;
-  font-size: 17px;
+  font-size: 15px;
   font-weight: 700;
   color: var(--ll-navy);
   margin-bottom: 8px;
@@ -1628,6 +1694,45 @@ main {
   color: var(--ll-texte-sec);
   min-height: 16px;
 }
+/* Badge fonction (métier) — porté de l'annuaire riche */
+.role-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: white;
+  margin-top: 6px;
+}
+.role-badge-mandataire  { background: #294C60; }
+.role-badge-chasseur    { background: var(--ll-orange); }
+.role-badge-expert      { background: #B03A2E; }
+.role-badge-experte-ia  { background: #5D8A6E; }
+.role-badge-fondatrice  { background: #C4963A; }
+.role-badge-autre       { background: #8B97A2; }
+.role-badge-lm          { background: #1A7A7A; letter-spacing: 0.08em; }
+.licencie-badges { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; align-items: center; }
+.licencie-badges .role-badge, .licencie-badges .profil-complete-badge { margin-top: 0; }
+/* Pastille "Profil complété" (remplace le rond vert) */
+.profil-complete-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--ll-navy);
+  background: #fff;
+  border: 1px solid var(--ll-bord);
+  margin-top: 4px;
+}
+.profil-complete-badge svg { color: var(--ll-success); }
 .licencie-antenne {
   display: inline-block;
   margin-top: 8px;
@@ -2281,6 +2386,11 @@ dialog::backdrop {
   align-items: center;
   margin-bottom: 40px;
 }
+.welcome-logo-img {
+  width: 320px;
+  max-width: 86%;
+  height: auto;
+}
 .welcome-logo-mark {
   width: 72px;
   height: 72px;
@@ -2340,12 +2450,11 @@ dialog::backdrop {
 }
 .welcome-btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
 .welcome-btn-pro {
-  background: var(--ll-navy);
+  background: var(--ll-lilas);
   color: #fff;
 }
 .welcome-btn-part {
-  background: #fff;
-  border: 1.5px solid #E0D8D0;
+  background: var(--ll-sage);
   color: var(--ll-navy);
 }
 .welcome-btn-icon {
@@ -2358,8 +2467,8 @@ dialog::backdrop {
   flex-shrink: 0;
   font-size: 22px;
 }
-.welcome-btn-pro .welcome-btn-icon { background: rgba(255,255,255,.12); }
-.welcome-btn-part .welcome-btn-icon { background: var(--ll-mauve-bg); }
+.welcome-btn-pro .welcome-btn-icon { background: var(--ll-navy); color: #fff; }
+.welcome-btn-part .welcome-btn-icon { background: var(--ll-orange); color: #fff; }
 .welcome-btn-text strong {
   display: block;
   font-size: 15px;
@@ -2385,14 +2494,14 @@ dialog::backdrop {
 #particulierScreen {
   position: fixed;
   inset: 0;
-  background: var(--ll-cream);
+  background: linear-gradient(180deg, #F1ECF7 0%, #F4EFF9 18%, var(--ll-cream) 60%);
   display: none;
   flex-direction: column;
   z-index: 99;
   overflow-y: auto;
 }
 .part-header {
-  background: var(--ll-navy);
+  background: linear-gradient(120deg, #0C2241 0%, #2A2752 58%, #463C6E 100%);
   padding: 20px 24px 16px;
   display: flex;
   align-items: center;
@@ -2426,7 +2535,7 @@ dialog::backdrop {
   opacity: .55;
 }
 .part-body {
-  padding: 28px 24px;
+  padding: 16px 24px 32px;
   max-width: 480px;
   margin: 0 auto;
   width: 100%;
@@ -2487,7 +2596,7 @@ dialog::backdrop {
 .part-field textarea { min-height: 90px; resize: vertical; }
 .part-field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .part-submit {
-  background: var(--ll-navy);
+  background: var(--ll-lilas);
   color: #fff;
   border: none;
   padding: 14px;
@@ -2589,8 +2698,8 @@ dialog::backdrop {
 @keyframes partFade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 .part-intro-hero { text-align: center; margin-bottom: 30px; }
 .part-intro-fulllogo {
-  width: 220px; max-width: 72%; height: auto;
-  margin: 4px auto 8px; display: block;
+  width: 300px; max-width: 84%; height: auto;
+  margin: 0 auto 6px; display: block;
 }
 .part-intro-wordmark {
   font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 30px;
@@ -2621,7 +2730,7 @@ dialog::backdrop {
 }
 .part-step-num {
   width: 26px; height: 26px; margin: 0 auto 8px;
-  border-radius: 50%; background: var(--ll-navy); color: #fff;
+  border-radius: 50%; background: var(--ll-lilas); color: #fff;
   font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 13px;
   display: flex; align-items: center; justify-content: center;
 }
@@ -2695,20 +2804,24 @@ dialog::backdrop {
 ===================================================================== -->
 <div id="welcomeScreen">
   <div class="welcome-logo">
-    <svg class="welcome-logo-mark" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="36" cy="14" r="9" fill="#A989B8"/>
-      <circle cx="16" cy="50" r="9" fill="#E86A2C"/>
-      <circle cx="56" cy="50" r="9" fill="#91A985"/>
-      <circle cx="36" cy="36" r="5" fill="#071E3A"/>
-      <line x1="36" y1="23" x2="36" y2="31" stroke="#071E3A" stroke-width="1.8" stroke-linecap="round"/>
-      <line x1="50" y1="44" x2="40.5" y2="38.5" stroke="#071E3A" stroke-width="1.8" stroke-linecap="round"/>
-      <line x1="22" y1="44" x2="31.5" y2="38.5" stroke="#071E3A" stroke-width="1.8" stroke-linecap="round"/>
-      <path d="M24 18 Q14 30 18 44" stroke="#071E3A" stroke-width="1" stroke-dasharray="3 3" fill="none" opacity=".3"/>
-      <path d="M48 18 Q58 30 54 44" stroke="#071E3A" stroke-width="1" stroke-dasharray="3 3" fill="none" opacity=".3"/>
-      <path d="M20 54 Q36 62 52 54" stroke="#071E3A" stroke-width="1" stroke-dasharray="3 3" fill="none" opacity=".3"/>
-    </svg>
-    <div class="welcome-wordmark">Li<span>·</span>La</div>
-    <div class="welcome-by">by La Maison d'AVA</div>
+    <img class="welcome-logo-img" src="./lila-logo-transparent.png" alt="Li·La by La Maison d'AVA"
+         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="welcome-logo-fallback" style="display:none; flex-direction:column; align-items:center;">
+      <svg class="welcome-logo-mark" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="36" cy="14" r="9" fill="#A996B8"/>
+        <circle cx="16" cy="50" r="9" fill="#F08247"/>
+        <circle cx="56" cy="50" r="9" fill="#9AAD8F"/>
+        <circle cx="36" cy="36" r="5" fill="#0C2241"/>
+        <line x1="36" y1="23" x2="36" y2="31" stroke="#0C2241" stroke-width="1.8" stroke-linecap="round"/>
+        <line x1="50" y1="44" x2="40.5" y2="38.5" stroke="#0C2241" stroke-width="1.8" stroke-linecap="round"/>
+        <line x1="22" y1="44" x2="31.5" y2="38.5" stroke="#0C2241" stroke-width="1.8" stroke-linecap="round"/>
+        <path d="M24 18 Q14 30 18 44" stroke="#0C2241" stroke-width="1" stroke-dasharray="3 3" fill="none" opacity=".3"/>
+        <path d="M48 18 Q58 30 54 44" stroke="#0C2241" stroke-width="1" stroke-dasharray="3 3" fill="none" opacity=".3"/>
+        <path d="M20 54 Q36 62 52 54" stroke="#0C2241" stroke-width="1" stroke-dasharray="3 3" fill="none" opacity=".3"/>
+      </svg>
+      <div class="welcome-wordmark">Li<span>·</span>La</div>
+      <div class="welcome-by">by La Maison d'AVA</div>
+    </div>
   </div>
   <p class="welcome-tagline">Confie ta recherche.<br><em>Le collectif</em> trouve pour toi.</p>
   <div class="welcome-choices">
@@ -2720,14 +2833,14 @@ dialog::backdrop {
       </div>
     </button>
     <button class="welcome-btn welcome-btn-part" onclick="goPro()">
-      <div class="welcome-btn-icon" style="background:var(--ll-navy); color:#fff;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></div>
+      <div class="welcome-btn-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></div>
       <div class="welcome-btn-text">
         <strong>Je suis professionnel</strong>
         <small>Accès réseau Li·La</small>
       </div>
     </button>
   </div>
-  <p class="welcome-footer">Annuaire · Événements · Masterclass · Réseau</p>
+  <p class="welcome-footer">Particuliers · Professionnels · En collectif</p>
 </div>
 
 <!-- =====================================================================
@@ -2746,10 +2859,10 @@ dialog::backdrop {
     <!-- ACCUEIL / INTRO PARTICULIER -->
     <div id="partIntro" class="part-intro">
       <div class="part-intro-hero">
-        <img class="part-intro-fulllogo" src="./logo.png" alt="Li·La by La Maison d'AVA"
+        <img class="part-intro-fulllogo" src="./lila-logo-transparent.png" alt="Li·La by La Maison d'AVA"
              onerror="this.outerHTML='&lt;div class=&quot;part-intro-wordmark&quot;&gt;Li&lt;span&gt;·&lt;/span&gt;La&lt;/div&gt;&lt;div class=&quot;part-intro-by&quot;&gt;by La Maison d\'AVA&lt;/div&gt;';">
         <p class="part-intro-tagline">Confie ta recherche.<br><em>Le collectif</em> trouve pour toi.</p>
-        <p class="part-intro-lead">Bienvenue. Déposez votre projet immobilier en quelques minutes : AVA vous recontacte, qualifie votre dossier et mobilise tout son réseau de professionnels pour vous.</p>
+        <p class="part-intro-lead">Bienvenue. Déposez votre projet immobilier en quelques minutes : La Maison d'AVA vous recontacte, qualifie votre dossier et mobilise tout son réseau de professionnels pour vous.</p>
       </div>
 
       <div class="part-steps">
@@ -2760,8 +2873,8 @@ dialog::backdrop {
         </div>
         <div class="part-step">
           <div class="part-step-num">2</div>
-          <strong>AVA qualifie</strong>
-          <span>On vous recontacte sous 24h</span>
+          <strong>La Maison d'AVA</strong>
+          <span>vous recontacte sous 24h</span>
         </div>
         <div class="part-step">
           <div class="part-step-num">3</div>
@@ -2776,13 +2889,13 @@ dialog::backdrop {
           <span class="part-choice-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12L12 3l9 9M5 10v10h14V10"/></svg></span>
           <span class="part-choice-txt"><strong>Acheter</strong><small>Trouver un bien à acquérir</small></span>
         </button>
-        <button class="part-choice part-choice-louer" onclick="partStart('recherche_location')">
-          <span class="part-choice-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-3"/><path d="M9 9v.01M9 12v.01M9 15v.01"/></svg></span>
-          <span class="part-choice-txt"><strong>Louer</strong><small>Trouver un bien à louer</small></span>
-        </button>
         <button class="part-choice part-choice-vendre" onclick="partStart('vendre')">
           <span class="part-choice-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg></span>
           <span class="part-choice-txt"><strong>Vendre</strong><small>Mettre mon bien en vente</small></span>
+        </button>
+        <button class="part-choice part-choice-louer" onclick="partStart('confier_location')">
+          <span class="part-choice-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.5" cy="15.5" r="4.5"/><path d="m10.7 12.3 7.3-7.3"/><path d="m15 7 2 2"/><path d="m18 4 2 2"/></svg></span>
+          <span class="part-choice-txt"><strong>Confier mon bien à la location</strong><small>Mettre mon bien en location</small></span>
         </button>
         <button class="part-choice part-choice-confier" onclick="partStart('confier_recherche')">
           <span class="part-choice-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></span>
@@ -2805,7 +2918,7 @@ dialog::backdrop {
     <div id="partTabDepot">
       <div class="part-info-box" style="margin-bottom:20px;">
         <strong>Comment ça fonctionne ?</strong>
-        Déposez votre recherche ou votre bien en quelques secondes. AVA vous contacte, qualifie votre dossier et active le réseau pour vous.
+        Déposez votre recherche ou votre bien en quelques secondes. La Maison d'AVA vous contacte, qualifie votre dossier et active le réseau pour vous.
       </div>
       <div id="partFormWrap">
         <form class="part-form" onsubmit="submitParticulier(event)">
@@ -2814,8 +2927,8 @@ dialog::backdrop {
             <select id="partType" required onchange="updatePartForm()">
               <option value="">— Choisir —</option>
               <option value="recherche_achat">Acheter un bien</option>
-              <option value="recherche_location">Louer un bien</option>
               <option value="vendre">Vendre mon bien</option>
+              <option value="confier_location">Confier mon bien à la location</option>
               <option value="confier_recherche">Confier une recherche</option>
             </select>
           </div>
@@ -2868,7 +2981,7 @@ dialog::backdrop {
           <div id="partFieldsVente" style="display:none; flex-direction:column; gap:16px;">
             <div class="part-field-row">
               <div class="part-field">
-                <label>Prix souhaité (€)</label>
+                <label id="partPrixLabel">Prix souhaité (€)</label>
                 <input type="number" id="partPrix" placeholder="ex. 280000">
               </div>
               <div class="part-field">
@@ -2890,7 +3003,7 @@ dialog::backdrop {
               <option value="Urgent">Urgent (sous 1 mois)</option>
             </select>
           </div>
-          <button type="submit" class="part-submit" id="partSubmitBtn">Confier ma demande à AVA<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-left:4px;"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
+          <button type="submit" class="part-submit" id="partSubmitBtn">Confier ma demande à La Maison d'AVA<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-left:4px;"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
           <p style="font-size:11px; color:#B0A89C; text-align:center; margin-top:-4px;">Vous recevrez un code de suivi unique par email</p>
         </form>
       </div>
@@ -2900,7 +3013,7 @@ dialog::backdrop {
         <h3>Demande envoyée !</h3>
         <p>Votre code de suivi unique :</p>
         <div class="part-success-code" id="partSuccessCode">LI-XXXX</div>
-        <p>Conservez ce code — il vous permet de suivre l'avancement de votre demande.<br>AVA vous contactera dans les 24h.</p>
+        <p>Conservez ce code — il vous permet de suivre l'avancement de votre demande.<br>La Maison d'AVA vous contactera dans les 24h.</p>
         <button class="part-submit" style="margin-top:20px; max-width:200px; margin-left:auto; margin-right:auto;" onclick="resetPartForm()">Nouvelle demande</button>
       </div>
     </div>
@@ -2927,17 +3040,14 @@ dialog::backdrop {
   <div class="login-card">
     <!-- LOGO LI·LA — place le fichier lila-logo.png à la racine du repo GitHub -->
     <div class="login-logo">
-      <img src="./logo.png" alt="Li·La" class="logo-img"
+      <img src="./lila-logo-transparent.png" alt="Li·La by La Maison d'AVA" class="logo-img"
            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
       <div class="logo-placeholder" style="display:none;">
-        <span>LOGO</span>
-        <small>Li·La</small>
+        <span>Li·La</span>
+        <small>by La Maison d'AVA</small>
       </div>
     </div>
-    <div class="login-brand">
-      <h1>Li·La</h1>
-      <div class="subtitle">by La Maison d'AVA</div>
-    </div>
+    <!-- login-brand retiré : le logo contient déjà le wordmark + la signature -->
     <div class="login-form">
       <input type="text" id="loginCode" placeholder="Votre code d'accès" autocomplete="off" autocapitalize="characters">
       <button class="btn btn-primary" onclick="login()">Entrer</button>
@@ -2955,16 +3065,13 @@ dialog::backdrop {
     <div class="header-brand">
       <!-- LOGO LI·LA — place le fichier lila-logo.png à la racine du repo GitHub -->
       <div class="header-logo">
-        <img src="./logo.png" alt="Li·La" class="logo-img"
+        <img src="./lila-logo-transparent.png" alt="Li·La by La Maison d'AVA" class="logo-img"
              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
         <div class="logo-placeholder small" style="display:none;">
-          <span>LOGO</span>
+          <span>Li·La</span>
         </div>
       </div>
-      <div class="header-title">
-        <h1>Li·La</h1>
-        <div class="subtitle">by La Maison d'AVA</div>
-      </div>
+      <!-- header-title retiré : le logo lockup contient déjà le wordmark + la signature -->
     </div>
     <div class="header-right">
       <span class="api-status" id="apiStatus" title="État de la connexion au Sheet"></span>
@@ -3017,6 +3124,27 @@ dialog::backdrop {
         <div class="section-subtitle" style="margin-bottom:16px;">Les dernières opportunités partagées dans le collectif</div>
         <div class="market-grid" id="dashMarket"></div>
       </div>
+
+      <!-- BLOC DÉPÔT D'OPPORTUNITÉS (accès rapide depuis l'accueil) -->
+      <div class="recent-section dash-deposit">
+        <h3>Partager une opportunité</h3>
+        <div class="section-subtitle" style="margin-bottom:14px;">Déposez un bien, une recherche client, ou transmettez une affaire au réseau</div>
+        <div class="dash-deposit-actions">
+          <button class="dash-deposit-btn" onclick="openDepotBienModal()">
+            <span class="dash-deposit-ico" style="background:#6E8A63;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg></span>
+            Déposer un bien à la vente
+          </button>
+          <button class="dash-deposit-btn" onclick="openDepotDemandeModal()">
+            <span class="dash-deposit-ico" style="background:var(--ll-orange);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span>
+            Déposer une recherche client
+          </button>
+          <button class="dash-deposit-btn" onclick="alert('Envoyer une affaire au réseau — fonctionnalité en cours de développement.')">
+            <span class="dash-deposit-ico" style="background:var(--ll-navy);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4z"/></svg></span>
+            Envoyer une affaire à La Maison d'AVA
+          </button>
+        </div>
+      </div>
+
       <!-- CTA mobile uniquement (remplace la section "Derniers membres" sur petit écran) -->
       <div class="recent-section-mobile-cta" onclick="setView('annuaire')">
         <div>
@@ -3035,6 +3163,10 @@ dialog::backdrop {
           <div class="section-subtitle"><span id="countLicencies">0</span> membres Li·La</div>
         </div>
         <button class="btn btn-primary admin-only" onclick="openLicencieEdit()" style="display:none;">+ Ajouter un membre</button>
+      </div>
+      <div class="section-intro">
+        <strong>L'annuaire du réseau Li·La</strong>
+        <small>Retrouvez les membres <b>par département</b> (la couleur de la pastille indique le territoire), filtrez par métier ou par nom, et <b>cliquez sur une fiche</b> pour accéder aux coordonnées, réseaux sociaux et carte digitale.</small>
       </div>
       <div class="toolbar">
         <div class="search-box">
@@ -3597,9 +3729,9 @@ let LICENCIES = [
 ];
 
 let EVENEMENTS = [
-  { id:'E001', titre:'Cocktail des fondateurs', type:'Apér\'Immo', date:'2026-06-12', heure:'19:00', lieu:'Bordeaux — Place Pey-Berland', description:'Rencontre annuelle des fondateurs et premiers membres Maison d\'Ava. Cocktail dînatoire pour échanger sur l\'année écoulée.', departement:'33', max:50, inscrits:['AVA-00001','AVA-00003','AVA-00009','AVA-00013'] },
+  { id:'E001', titre:'Cocktail des fondateurs', type:'Apér\'Immo', date:'2026-06-12', heure:'19:00', lieu:'Bordeaux — Place Pey-Berland', description:'Rencontre annuelle des fondateurs et premiers membres Maison d\'AVA. Cocktail dînatoire pour échanger sur l\'année écoulée.', departement:'33', max:50, inscrits:['AVA-00001','AVA-00003','AVA-00009','AVA-00013'] },
   { id:'E002', titre:'Petit-déjeuner réseau — Tendances marché 2026', type:'Pause Café', date:'2026-05-28', heure:'08:30', lieu:'Bordeaux — Coffee Place', description:'Décryptage des tendances immo Q2 2026 avec un économiste invité. Petit-déjeuner offert.', departement:'33', max:25, inscrits:['AVA-00003','AVA-00009','AVA-00013','AVA-00021'] },
-  { id:'E003', titre:'Lancement antenne Paris', type:'Autre', date:'2026-09-15', heure:'18:00', lieu:'Paris — 8e arrondissement', description:'Soirée de lancement officiel de l\'antenne parisienne Maison d\'Ava. Invités VIP et presse.', departement:'75', max:80, inscrits:['AVA-00001','AVA-00013'] },
+  { id:'E003', titre:'Lancement antenne Paris', type:'Autre', date:'2026-09-15', heure:'18:00', lieu:'Paris — 8e arrondissement', description:'Soirée de lancement officiel de l\'antenne parisienne Maison d\'AVA. Invités VIP et presse.', departement:'75', max:80, inscrits:['AVA-00001','AVA-00013'] },
   { id:'E005', titre:'Apér\'Immo Créteil — Networking 94', type:'Apér\'Immo', date:'2026-07-08', heure:'18:30', lieu:'Créteil — Brasserie de l\'Hôtel de Ville', departement:'94', description:'Premier Apér\'Immo organisé par l\'antenne 94. Networking entre membres du Val-de-Marne et partenaires locaux.', max:25, inscrits:['AVA-00016','AVA-00017','AVA-00018','AVA-00020'] },
   { id:'E004', titre:'Afterwork Q1', type:'Apér\'Immo', date:'2026-03-20', heure:'18:30', lieu:'Bordeaux — Quais', description:'Premier afterwork de l\'année 2026.', departement:'33', max:30, inscrits:['AVA-00001','AVA-00003','AVA-00009'] },
 ];
@@ -3617,11 +3749,11 @@ let LIENS = [
   { id:'L3', titre:'Consulter les biens en ligne (Neti)', url:'https://neti.fr', description:'Plateforme externe Neti : tous les biens à la vente du réseau accessibles aux clients.', categorie:'Pour vos clients & biens', icone:'link' },
 
   // ===== 2. Formations =====
-  { id:'L4', titre:'AVA Formation (loi ALUR)', url:'https://ava-formation.lovable.app/', description:'Plateforme de formations Maison d\'Ava, certifiées loi ALUR. Accès au catalogue et inscriptions.', categorie:'Formations', icone:'graduation' },
+  { id:'L4', titre:'AVA Formation (loi ALUR)', url:'https://ava-formation.lovable.app/', description:'Plateforme de formations Maison d\'AVA, certifiées loi ALUR. Accès au catalogue et inscriptions.', categorie:'Formations', icone:'graduation' },
   { id:'L5', titre:'Catalogue Formation Immo / IA', url:'https://catalogueavaformationimmobilier.netlify.app/', description:'Catalogue complet des formations immobilier et IA proposées par AVA Formation.', categorie:'Formations', icone:'briefcase' },
 
   // ===== 3. Plateforme du hub & outils membres =====
-  { id:'L6', titre:'La Maison d\'Ava — Hub Immobilier', url:'https://lamaisondava-hubimmobilier.fr/', description:'Site officiel du Hub Immobilier Maison d\'Ava. Présentation publique du réseau.', categorie:'Plateforme Hub & outils', icone:'home' },
+  { id:'L6', titre:'La Maison d\'AVA — Hub Immobilier', url:'https://lamaisondava-hubimmobilier.fr/', description:'Site officiel du Hub Immobilier Maison d\'AVA. Présentation publique du réseau.', categorie:'Plateforme Hub & outils', icone:'home' },
   { id:'L7', titre:'Compléter ma carte numérique', url:'https://forms.gle/ncWbV96fDQmcnaoq8', description:'Formulaire pour transmettre ou mettre à jour tes infos (photo, bio, coordonnées) qui apparaîtront sur ta carte digitale.', categorie:'Plateforme Hub & outils', icone:'fileText' },
 ];
 
@@ -3669,10 +3801,13 @@ let DEPARTEMENTS = {
 };
 
 function deptColor(code) {
-  return DEPARTEMENTS[code]?.couleur || '#E86A2C';
+  // Couleurs département FIXES et distinctes (indépendantes du Sheet) — demande Laurence 08/06/2026
+  const map = { '33': '#8B2D3A', '75': '#5B7C99', '92': '#5D8A6E', '94': '#1A7A7A' };
+  return map[String(code)] || '#8B97A2';
 }
 function deptColorClair(code) {
-  return DEPARTEMENTS[code]?.couleurClair || '#F0924E';
+  const map = { '33': '#B85968', '75': '#7E9CB4', '92': '#82AC91', '94': '#4FA3A3' };
+  return map[String(code)] || '#B5BDC4';
 }
 function badgeDept(code, soft = true) {
   // Badge coloré avec la couleur du département (par défaut : version douce)
@@ -4065,20 +4200,33 @@ function avatarHTML(l, sizeClass = '') {
 }
 
 function avatarStyle(l, size = 'large') {
-  // Style adaptatif :
-  // - Avec photo : fond plein dpt (fallback si la photo échoue) + bordure blanche
-  // - Sans photo : fond blanc + bordure ÉPAISSE couleur dpt + initiales en couleur dpt
+  // Avatar = couleur PLEINE du département + initiales blanches.
+  // Si une vraie photo est chargée, elle recouvre ce fond (avatar-img en absolute).
   const c = deptColor(l.departement);
   const borderWidth = size === 'small' ? '2px' : '3px';
-  if (l.photo) {
-    const cc = deptColorClair(l.departement);
-    return `background: linear-gradient(135deg, ${c}, ${cc}); border: ${borderWidth} solid white;`;
-  }
-  return `background: white; color: ${c}; border: ${borderWidth} solid ${c};`;
+  return `background: ${c}; color: white; border: ${borderWidth} solid white;`;
 }
 
 function avatarBadge(l) {
-  return l.verifie ? '<span class="verifie-badge" title="Fiche complétée"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px;display:inline-block;"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>' : '';
+  // Rond vert "vérifié" retiré à la demande de Laurence (08/06/2026) — on ne veut pas de pastille verte sur les avatars.
+  return '';
+}
+
+// Badge fonction (métier) → couleur par type de métier
+function getRoleInfo(metier, id) {
+  const m = (metier || '').toLowerCase();
+  if (id === 'AVA-00001') return { label: 'Fondatrice', cls: 'fondatrice' };
+  if (id === 'AVA-00013') return { label: 'Experte IA', cls: 'experte-ia' };
+  if (id === 'AVA-00016') return { label: 'LM 94', cls: 'lm' };
+  if (/chasseur/.test(m)) return { label: 'Chasseur', cls: 'chasseur' };
+  if (/mandataire|transaction|agent immo/.test(m)) return { label: 'Mandataire', cls: 'mandataire' };
+  if (/notaire|courtier|diagnostiqueur|expert|viager|patrimoine|gestionnaire|assur|financ/.test(m)) return { label: 'Expert', cls: 'expert' };
+  if (m && m.length > 3) return { label: 'Expert', cls: 'expert' };
+  return { label: 'Membre', cls: 'autre' };
+}
+function roleBadgeHTML(metier, id) {
+  const r = getRoleInfo(metier, id);
+  return `<span class="role-badge role-badge-${r.cls}">${escapeHtml(r.label)}</span>`;
 }
 
 function fullName(l) {
@@ -4157,7 +4305,7 @@ function renderDashboard() {
   if (currentUser?.id && !adminModeActive && !dismissed) {
     const l = currentUser;
     const isVerifie = l.verifie;
-    const titre = isVerifie ? 'Votre espace Maison d\'Ava' : 'Bienvenue dans votre espace';
+    const titre = isVerifie ? 'Votre espace Maison d\'AVA' : 'Bienvenue dans votre espace';
     const sous = isVerifie
       ? 'Retrouvez vos coordonnées, réseaux sociaux et carte digitale dans votre profil.'
       : 'Personnalisez votre profil et commandez votre carte digitale pour gagner en visibilité auprès de vos clients.';
@@ -4398,6 +4546,12 @@ function renderAnnuaire() {
     return [l.prenom, l.nom, l.metier, l.id].some(f => (f || '').toLowerCase().includes(q));
   });
 
+  // Tri alphabétique par NOM — mélange les départements (couleurs entremêlées) — demande Laurence
+  filtered.sort((a, b) =>
+    (a.nom || '').localeCompare(b.nom || '') ||
+    (a.prenom || '').localeCompare(b.prenom || '')
+  );
+
   document.getElementById('countLicencies').textContent = filtered.length;
   const grid = document.getElementById('annuaireGrid');
   const list = document.getElementById('annuaireList');
@@ -4422,7 +4576,11 @@ function renderAnnuaire() {
       <div class="licencie-id">${l.id}</div>
       <div class="licencie-name">${capitalize(l.prenom)} ${capitalize(l.nom)}</div>
       <div class="licencie-job">${escapeHtml(l.metier || 'À compléter')}</div>
-      <div class="licencie-antenne"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-1px;display:inline-block;"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> ${escapeHtml(deptLabel(l.departement))}</div>
+      <div class="licencie-badges">
+        ${l.verifie ? '<span class="profil-complete-badge"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-1px;"><path d="M12 2 4 5v6c0 5 3.4 8.5 8 11 4.6-2.5 8-6 8-11V5l-8-3z"/></svg> Profil complété</span>' : ''}
+        ${roleBadgeHTML(l.metier, l.id)}
+      </div>
+      <div class="licencie-antenne" style="color:${deptColor(l.departement)}; font-weight:700;">● ${escapeHtml(l.departement)}</div>
     </div>`;
   }).join('');
 
@@ -4436,8 +4594,8 @@ function renderAnnuaire() {
         <div class="row-id">${l.id}</div>
         <div class="row-name">${capitalize(l.prenom)} ${capitalize(l.nom)}</div>
       </div>
-      <div class="row-metier">${escapeHtml(l.metier || 'À compléter')}</div>
-      <div class="row-antenne"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-1px;display:inline-block;"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> ${escapeHtml(deptLabel(l.departement))}</div>
+      <div class="row-metier">${escapeHtml(l.metier || 'À compléter')} ${roleBadgeHTML(l.metier, l.id)}</div>
+      <div class="row-antenne" style="color:${deptColor(l.departement)}; font-weight:700;">● ${escapeHtml(l.departement)}</div>
       <div class="row-actions">
         ${l.tel ? `<a class="contact-btn contact-btn-sm" href="tel:${l.tel}" onclick="event.stopPropagation()" title="Téléphone">${icon('phone', 14)}</a>` : ''}
         ${l.email ? `<a class="contact-btn contact-btn-sm" href="mailto:${l.email}" onclick="event.stopPropagation()" title="Email">${icon('mail', 14)}</a>` : ''}
@@ -4456,7 +4614,7 @@ function openLicencieModal(id) {
 
   const tel = l.tel ? `<a href="tel:${l.tel}" class="contact-btn" title="Téléphone">${icon('phone', 18)}</a>` : `<span class="contact-btn disabled" title="Téléphone manquant">${icon('phone', 18)}</span>`;
   const mail = l.email ? `<a href="mailto:${l.email}" class="contact-btn" title="Email">${icon('mail', 18)}</a>` : `<span class="contact-btn disabled" title="Email manquant">${icon('mail', 18)}</span>`;
-  const wa = l.tel ? `<a href="https://wa.me/${l.tel.replace(/[^0-9]/g,'').replace(/^0/,'33')}" target="_blank" rel="noopener" class="contact-btn" title="WhatsApp">${icon('message', 18)}</a>` : `<span class="contact-btn disabled" title="WhatsApp indisponible">${icon('message', 18)}</span>`;
+  const wa = l.tel ? `<a href="https://wa.me/${String(l.tel).replace(/[^0-9]/g,'').replace(/^0/,'33')}" target="_blank" rel="noopener" class="contact-btn" title="WhatsApp">${icon('message', 18)}</a>` : `<span class="contact-btn disabled" title="WhatsApp indisponible">${icon('message', 18)}</span>`;
   const carte = l.carte_url ? `<button class="contact-btn" onclick="openCarteDigitale('${l.id}')" title="Carte digitale">${icon('card', 18)}</button>` : `<span class="contact-btn disabled" title="Carte non disponible">${icon('card', 18)}</span>`;
 
   // Réseaux sociaux + site (logos officiels conservés pour LinkedIn/FB pour cohérence visuelle)
@@ -4586,7 +4744,7 @@ function renderEventCard(e, isMc) {
     badge = e.thematique ? `<span class="badge badge-marine">${escapeHtml(e.thematique)}</span>` : '';
   } else {
     typeIcon = getEventIcon(e.type);
-    if (e.type) badge = `<span class="badge badge-orange">${typeIcon} ${escapeHtml(e.type)}</span>`;
+    if (e.type) badge = `<span class="badge badge-orange">${icon(typeIcon, 12)} ${escapeHtml(e.type)}</span>`;
   }
 
   // Meta info
@@ -4888,20 +5046,20 @@ function renderProfil() {
   // Bloc CTA en haut du profil (toujours visible)
   const ctaTitle = isVerifie
     ? 'Profil vérifié — Modifier mes informations'
-    : 'Complétez votre profil Maison d\'Ava';
+    : 'Complétez votre profil Maison d\'AVA';
   const ctaSub = isVerifie
     ? 'Vous pouvez mettre à jour vos coordonnées et gérer votre carte digitale à tout moment.'
     : 'Photo, bio, coordonnées, réseaux sociaux, et option carte digitale — tout se renseigne en un seul formulaire.';
   const ctaBtn = isVerifie ? 'Modifier mes informations' : 'Compléter mon profil';
 
-  const ctaBlock = formUrl ? `
+  const ctaBlock = `
     <div class="profil-cta">
       <div class="profil-cta-content">
         <strong>${escapeHtml(ctaTitle)}</strong>
         <small>${escapeHtml(ctaSub)}</small>
       </div>
-      <a href="${escapeHtml(formUrl)}" target="_blank" rel="noopener" class="btn">${escapeHtml(ctaBtn)} ↗</a>
-    </div>` : '';
+      <button class="btn" style="background:var(--ll-orange); color:#fff;" onclick="openEditProfilModal()">${escapeHtml(ctaBtn)}</button>
+    </div>`;
 
   // Helper pour afficher un champ
   const info = (icone, label, value, link = null) => {
@@ -4944,7 +5102,7 @@ function renderProfil() {
           ${info(icon('phone', 18), 'Téléphone', l.tel, l.tel ? 'tel:' + l.tel : null)}
           ${info(icon('mail', 18), 'Email', l.email, l.email ? 'mailto:' + l.email : null)}
           ${info(icon('globe', 18), 'Site web', l.site, l.site)}
-          ${info(icon('message', 18), 'WhatsApp', l.tel ? l.tel : '', l.tel ? 'https://wa.me/' + l.tel.replace(/[^0-9]/g,'').replace(/^0/,'33') : null)}
+          ${info(icon('message', 18), 'WhatsApp', l.tel ? l.tel : '', l.tel ? 'https://wa.me/' + String(l.tel).replace(/[^0-9]/g,'').replace(/^0/,'33') : null)}
         </div>
       </div>
 
@@ -4986,6 +5144,107 @@ function renderProfil() {
         </div>` : ''}
       </div>
     </div>`;
+}
+
+/* =====================================================================
+   ÉDITION DE PROFIL IN-APP — avec upload photo (porté d'APPLI-DEMO)
+   NB : la photo est stockée en base64 local pour l'aperçu/démo.
+   La persistance réelle (stockage photo + Sheet) = phase backend.
+===================================================================== */
+function openEditProfilModal() {
+  if (!currentUser) return;
+  const l = LICENCIES.find(x => x.id === currentUser.id);
+  if (!l) return;
+  const dom = document.getElementById('modalDepotBody');
+  if (!dom) return;
+  document.getElementById('modalDepotTitle').textContent = 'Modifier mon profil';
+  const uploadIco = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:4px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M17 8l-5-5-5 5"/><path d="M12 3v12"/></svg>';
+  dom.innerHTML = `
+    <div style="display:flex; align-items:center; gap:16px; margin-bottom:20px; padding:16px; background:var(--ll-cream); border-radius:var(--radius-md);">
+      <div id="editProfilAvatar" style="${avatarStyle(l)} width:64px; height:64px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:22px; font-weight:700; color:white; flex-shrink:0; overflow:hidden; position:relative;">
+        ${l.photo ? `<img src="${escapeHtml(l.photo)}" style="width:100%; height:100%; object-fit:cover; position:absolute; top:0; left:0;" onerror="this.style.display='none'">` : ''}
+        <span>${initialsOf(l)}</span>
+      </div>
+      <div style="flex:1;">
+        <div style="font-weight:700; font-size:15px; color:var(--ll-navy);">${capitalize(l.prenom)} ${capitalize(l.nom)}</div>
+        <div style="font-size:12px; color:var(--ll-texte-mute); margin-bottom:8px;">${l.id}</div>
+        <label class="btn btn-secondary" style="font-size:12px; cursor:pointer; padding:6px 12px;">
+          ${uploadIco}Changer ma photo
+          <input type="file" id="ep_photo_file" accept="image/*" style="display:none;" onchange="previewProfilPhoto(this)">
+        </label>
+      </div>
+    </div>
+    <input type="hidden" id="ep_photo_url" value="${escapeHtml(l.photo || '')}">
+    <div class="form-row">
+      <div class="form-group"><label>Métier / Activité *</label><input id="ep_metier" value="${escapeHtml(l.metier || '')}" placeholder="Ex : Mandataire immo"></div>
+      <div class="form-group"><label>Téléphone</label><input id="ep_tel" type="tel" value="${escapeHtml(l.tel || '')}" placeholder="06 XX XX XX XX"></div>
+    </div>
+    <div class="form-group"><label>Email professionnel</label><input id="ep_email" type="email" value="${escapeHtml(l.email || '')}" placeholder="prenom@domaine.fr"></div>
+    <div class="form-group"><label>Site web</label><input id="ep_site" type="url" value="${escapeHtml(l.site || '')}" placeholder="https://..."></div>
+    <div class="form-group"><label>Bio (présentation pour le réseau)</label><textarea id="ep_bio" rows="3" placeholder="Quelques lignes pour vous présenter à vos confrères...">${escapeHtml(l.bio || '')}</textarea></div>
+    <div class="form-row">
+      <div class="form-group"><label>LinkedIn</label><input id="ep_linkedin" value="${escapeHtml(l.linkedin || '')}" placeholder="https://linkedin.com/in/..."></div>
+      <div class="form-group"><label>Instagram</label><input id="ep_instagram" value="${escapeHtml(l.instagram || '')}" placeholder="https://instagram.com/..."></div>
+    </div>
+    <div class="form-row">
+      <div class="form-group"><label>Facebook</label><input id="ep_facebook" value="${escapeHtml(l.facebook || '')}" placeholder="https://facebook.com/..."></div>
+      <div class="form-group"><label>TikTok</label><input id="ep_tiktok" value="${escapeHtml(l.tiktok || '')}" placeholder="https://tiktok.com/@..."></div>
+    </div>
+    <div style="display:flex; gap:10px; justify-content:flex-end; margin-top:8px;">
+      <button class="btn btn-secondary" onclick="document.getElementById('modalDepot').close()">Annuler</button>
+      <button class="btn" style="background:var(--ll-orange); color:#fff;" onclick="saveEditProfil('${l.id}')">Enregistrer</button>
+    </div>`;
+  document.getElementById('modalDepot').showModal();
+}
+
+function previewProfilPhoto(input) {
+  const file = input.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    const dataUrl = e.target.result;
+    const avatar = document.getElementById('editProfilAvatar');
+    let img = avatar.querySelector('img');
+    if (!img) {
+      img = document.createElement('img');
+      img.style.cssText = 'width:100%; height:100%; object-fit:cover; position:absolute; top:0; left:0;';
+      avatar.insertBefore(img, avatar.firstChild);
+    }
+    img.src = dataUrl;
+    img.style.display = 'block';
+    document.getElementById('ep_photo_url').value = dataUrl;
+  };
+  reader.readAsDataURL(file);
+}
+
+function saveEditProfil(membreId) {
+  const metier = document.getElementById('ep_metier').value.trim();
+  if (!metier) { alert('Le métier est obligatoire.'); return; }
+  const updatedData = {
+    metier,
+    tel:       document.getElementById('ep_tel').value.trim(),
+    email:     document.getElementById('ep_email').value.trim(),
+    site:      document.getElementById('ep_site').value.trim(),
+    bio:       document.getElementById('ep_bio').value.trim(),
+    linkedin:  document.getElementById('ep_linkedin').value.trim(),
+    instagram: document.getElementById('ep_instagram').value.trim(),
+    facebook:  document.getElementById('ep_facebook').value.trim(),
+    tiktok:    document.getElementById('ep_tiktok').value.trim(),
+    photo:     document.getElementById('ep_photo_url').value || '',
+    verifie:   true,
+  };
+  // Mise à jour locale immédiate (persistance Sheet + stockage photo = phase backend)
+  const licencie = LICENCIES.find(x => x.id === membreId);
+  if (licencie) Object.assign(licencie, updatedData);
+  if (currentUser?.id === membreId) Object.assign(currentUser, updatedData);
+  document.getElementById('modalDepot').close();
+  renderProfil();
+  if (typeof renderAnnuaire === 'function') renderAnnuaire();
+  const toast = document.createElement('div');
+  toast.style.cssText = 'position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--ll-success);color:white;padding:14px 24px;border-radius:12px;font-weight:600;z-index:9999;box-shadow:0 8px 24px rgba(0,0,0,0.2);';
+  toast.textContent = 'Profil mis à jour';
+  document.body.appendChild(toast);
+  setTimeout(() => toast.remove(), 3000);
 }
 
 /* =====================================================================
@@ -5573,11 +5832,13 @@ function setPartTab(tab) {
 function updatePartForm() {
   const type = document.getElementById('partType').value;
   const isRecherche = type.startsWith('recherche') || type === 'confier_recherche';
-  const isVente = type === 'vendre';
+  const isProprio = type === 'vendre' || type === 'confier_location';
   const rec = document.getElementById('partFieldsRecherche');
   const ven = document.getElementById('partFieldsVente');
   rec.style.display = isRecherche ? 'flex' : 'none';
-  ven.style.display = isVente ? 'flex' : 'none';
+  ven.style.display = isProprio ? 'flex' : 'none';
+  const prixLabel = document.getElementById('partPrixLabel');
+  if (prixLabel) prixLabel.textContent = type === 'confier_location' ? 'Loyer mensuel souhaité (€)' : 'Prix souhaité (€)';
 }
 
 function generateCode() {
@@ -5639,7 +5900,7 @@ function resetPartForm() {
   document.querySelector('.part-form').reset();
   updatePartForm();
   document.getElementById('partSubmitBtn').disabled = false;
-  document.getElementById('partSubmitBtn').textContent = 'Confier ma demande à AVA →';
+  document.getElementById('partSubmitBtn').textContent = 'Confier ma demande à La Maison d\'AVA →';
 }
 
 async function rechercherSuivi() {
@@ -5687,10 +5948,10 @@ function renderSuiviCard(d) {
     </div>
     <div class="part-info-box" style="margin-top:14px;">
       <strong>Prochaine étape</strong>
-      ${d.statut === 'En cours de traitement' ? 'AVA va vous contacter dans les 24h pour qualifier votre demande.' :
+      ${d.statut === 'En cours de traitement' ? 'La Maison d\'AVA va vous contacter dans les 24h pour qualifier votre demande.' :
         d.statut === 'Qualifié par AVA' ? 'Votre dossier est qualifié. Il va être transmis aux professionnels du réseau.' :
         d.statut === 'Transmis au réseau' ? 'Votre demande est visible par les professionnels Li·La. Des agents vont vous contacter.' :
-        'Votre demande a été traitée. Contactez AVA pour toute question.'}
+        'Votre demande a été traitée. Contactez La Maison d\'AVA pour toute question.'}
     </div>`;
 }
 
