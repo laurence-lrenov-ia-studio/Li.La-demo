@@ -12,6 +12,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="Li·La">
+<script>if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('./sw.js').catch(function(){});});}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -2315,19 +2316,15 @@ dialog::backdrop {
 
 /* Event modal */
 .event-modal-cover {
-  height: 140px;
-  background: linear-gradient(135deg, var(--ll-navy), var(--ll-navy-deep));
+  height: 96px;
+  background: linear-gradient(120deg, #EDF2EA, var(--ll-cream));
+  border-bottom: 1px solid var(--ll-bord);
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.event-modal-cover::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 80% 50%, rgba(232, 106, 44, 0.4), transparent 60%);
-}
+.event-modal-cover::before { content: none; }
 .event-modal-cover .event-date {
   position: relative;
   background: white;
@@ -3087,8 +3084,8 @@ dialog::backdrop {
       <!-- header-title retiré : le logo lockup contient déjà le wordmark + la signature -->
     </div>
     <div class="header-right">
-      <span class="api-status" id="apiStatus" title="État de la connexion au Sheet"></span>
-      <button class="btn btn-ghost btn-sm" onclick="reloadFromAPI()" title="Recharger les données du Sheet" id="btnReload"></button>
+      <span class="api-status" id="apiStatus" title="État de la connexion"></span>
+      <button class="btn btn-ghost btn-sm" onclick="reloadFromAPI()" title="Recharger les données" id="btnReload"></button>
       <button class="admin-toggle" id="adminToggle" onclick="toggleAdminMode()" style="display:none;">Mode Admin</button>
       <div class="header-user">
         <span class="header-user-avatar" id="userAvatar">?</span>
@@ -4037,7 +4034,7 @@ function enterApp() {
   const apiStatus = document.getElementById('apiStatus');
   if (apiStatus) {
     if (API_READY) {
-      apiStatus.innerHTML = '<span class="status-dot status-ok"></span> Sheet connecté';
+      apiStatus.innerHTML = '<span class="status-dot status-ok"></span> Connecté';
       apiStatus.classList.add('status-ok-wrap');
     } else {
       apiStatus.innerHTML = '<span class="status-dot status-off"></span> Mode démo';
